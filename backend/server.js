@@ -61,7 +61,7 @@ app.post('/user/login', async(req,res,next)=>{
   }
   const match = await bcrypt.compare(password,user.password)
   if(!match){
-    return res.status(400).json({msg :"invalid credential"})
+    return res.status(400).json({msg :"invalid password"})
   }
   
     /// create token

@@ -21,13 +21,17 @@ const Dashboard = () => {
       try {
         // This API call will include the httpOnly cookie automatically
         const response = await axios.get('http://localhost:3000/user/dashboard', { withCredentials: true });
-        setStatusMessage(`Server status: ${response.data.status} at ${response.data.time}`);
+        console.log('response data', response.data);
         
+        setStatusMessage(`Server status: ${response.data.status} at ${response.data.time}`);
+        const createDate = new Date(response.data.user.createdAt); 
         // Simulate fetching user-specific data
         setUserData({
           lastLogin: new Date().toLocaleString(),
           accountStatus: 'Active',
-          role: 'User'
+          role: response.data.user.roles,
+          name : response.data.user.name,
+          createdAt : createDate.toLocaleString(),
         });
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -59,9 +63,10 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <h1>Dashboard</h1>
       <div className="user-info">
-        <h2>Welcome, {user?.name}</h2>
+        <h2>Welcome, {userData?.name}</h2>
         <p>Email: {user?.email}</p>
         <p>Last Login: {userData.lastLogin}</p>
+        <p>Created At : {userData.createdAt}</p>
         <p>Account Status: {userData.accountStatus}</p>
         <p>Role: {userData.role}</p>
       </div>

@@ -31,7 +31,9 @@ const Login = () => {
       setUser(response.user);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+/*       console.log('err', err); */
+      // Handle error
+      setError(err.response?.data?.msg || 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -72,7 +74,7 @@ const Login = () => {
         Don't have an account? <a href="/register">Register</a>
       </p>
       <p>
-        Don't have an account? <a href="/dashboard">Dashboard</a>
+        Go to Dashboard: <a href="/dashboard">Dashboard</a>
       </p>
     </div>
   );
