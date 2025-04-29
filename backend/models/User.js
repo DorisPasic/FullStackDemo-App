@@ -29,6 +29,10 @@ const userSchema = new Schema({
         type : String,
         required: true
     },
+    profileImage:{
+        type : String,
+        default : "https://images.pexels.com/photos/2011173/pexels-photo-2011173.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
     isVerified: {
         type: Boolean,
         required : true,

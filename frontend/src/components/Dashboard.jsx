@@ -32,6 +32,7 @@ const Dashboard = () => {
           role: response.data.user.roles,
           name : response.data.user.name,
           createdAt : createDate.toLocaleString(),
+          profileImage: response.data.user.profileImage,
         });
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -64,6 +65,8 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <div className="user-info">
         <h2>Welcome, {userData?.name}</h2>
+        <p><img width="150px" src={userData.profileImage} alt="" /></p>
+        <input type= "file" accept=".jpg, .jpeg, .png, .gif" />  <button>Upload</button>  {/* <input type="submit" value="Upload" />  Hier wird die Formatierung für den Button nicht übernommen! */ }
         <p>Email: {user?.email}</p>
         <p>Last Login: {userData.lastLogin}</p>
         <p>Created At : {userData.createdAt}</p>
