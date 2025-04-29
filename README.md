@@ -1,3 +1,11 @@
+
+<div align="center">
+    <img src="./frontend/src/assets/Bildschirmfoto.png" alt="Screenshot" height="200">
+
+<!-- 
+  <h3 align="center"><a href="">Fullstack-Demo-App</a></h3> -->
+</div>
+
 # fullstack-demo-app
 
 in progress ...
